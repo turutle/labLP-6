@@ -11,8 +11,11 @@ def decorator(func):
         lists = func(*args, **kwargs)
         list_dict = {}
 
-        for idx in range(len(lists[0])):
-            list_dict [lists[0][idx]] = lists[1][idx]
+        for key in lists[0]:
+            for val in lists[1]:
+                if lists[0].index(key) == lists[1].index(val):
+                    list_dict [key] = val
+                
         return list_dict
     
     return wrapper
